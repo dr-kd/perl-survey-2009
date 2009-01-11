@@ -96,8 +96,6 @@ sub _unify_cols {
     return \@final;
 }
 
-
-
 =head2 print_csv ($outfile_name)
 
 prints a csv file of the data
@@ -134,7 +132,6 @@ You can find documentation for this module with the perldoc command.
 
     perldoc Data::Perlsurvey
 
-
 You can also look for information at:
 
 =over 4
@@ -157,9 +154,7 @@ L<http://search.cpan.org/dist/Data-Perlsurvey/>
 
 =back
 
-
 =head1 ACKNOWLEDGEMENTS
-
 
 =head1 COPYRIGHT & LICENSE
 
@@ -168,7 +163,6 @@ Copyright 2009 Kieren Diment, all rights reserved.
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
 
-
 =cut
 
-1; # End of Data::Perlsurvey
+1;
