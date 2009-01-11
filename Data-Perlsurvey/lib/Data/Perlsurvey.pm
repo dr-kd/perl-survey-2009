@@ -7,7 +7,7 @@ use Squirrel;
 use Text::CSV_XS;
 
 has 'rawdata' => (is => 'ro', isa => 'ArrayRef', required => 1);
-
+has 'flat_data' => (is => 'ro', isa => 'ArrayRef', lazy_build => 1);
 =head1 NAME
 
 Data::Perlsurvey
@@ -31,13 +31,13 @@ Reads and writes data from the perl survey in a format amenable to analysis.
 
 =head1 FUNCTIONS
 
-=head2 flatten
+=head2 _build_flat_data
 
 get list of questions from the survey as a nice flat list;
 
 =cut
 
-sub flatten {
+sub _build_flat_data {
     my ($self) = @_;
     my @flatdata;
     foreach my $line (@{ $self->rawdata }) {
@@ -106,7 +106,7 @@ prints a csv file of the data
 
 sub print_csv {
     my ($self, $filename) = @_;
-    my $data = $self->flatten;
+    my $data = $self->flat_data;
     my $csv = Text::CSV_XS->new();
     open my $FH, ">", $filename or die;
     foreach my $d (@$data) {
