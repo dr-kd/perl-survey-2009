@@ -49,7 +49,7 @@ sub _build_flat_data {
             }
             else { # item with multiple answers
                 foreach my $r ( @{$line->{$k}} ) {
-                    my $itemkey = $k . " " . $r;
+                    my $itemkey = $k . " " . lc($r);
                     $response->{$itemkey} = 1;
                 }
             }
@@ -96,6 +96,27 @@ sub _unify_cols {
     return \@final;
 }
 
+
+=head2 get_head
+
+gets the variable names from the file, all hammered flat in the way that statisticans like it :)
+
+=cut
+
+sub get_head {
+    my ($self) = @_;
+    my $head = $self->flat_data->[0];
+    foreach my $h (@$head) {
+        $h=~ s/^Attended (Perl Mongers|conference)$/Attended local $1 /;
+        $h =~ s/Industry\/ies /Industry: /;
+        $h=~ s/^(Other )?[pP]rogramming languages known/Programming:/;
+        $h=~ s/Years programming \(total\)/Total years programming/;
+        $h=~ s/Sex/Gender/;
+    }
+    return $head;
+}
+
+
 =head2 print_csv ($outfile_name)
 
 prints a csv file of the data
@@ -104,10 +125,13 @@ prints a csv file of the data
 
 sub print_csv {
     my ($self, $filename) = @_;
-    my $data = $self->flat_data;
+    my @data = @{$self->flat_data};
     my $csv = Text::CSV_XS->new();
     open my $FH, ">", $filename or die;
-    foreach my $d (@$data) {
+    $csv->combine(@{$self->get_head});
+    print $FH $csv->string, "\n";
+    $DB::single=1;
+    foreach my $d (@data[1 .. $#data]) {
         $csv->combine(@$d);
         print $FH $csv->string, "\n";
     }
