@@ -1,8 +1,7 @@
 <h1> Identify yourself </h1>
 <p> To make sure that this survey is only conducted by real humans, first we ask you to fill in the following form.  Once you get the answer right, you'll be sent on to the survey.
-<form name="recaptcha" action="[% c.uri_for('/do_test') %]"
+<form name="recaptcha" action="[% dest %]"
 method="post">
-<input type="hidden" name="dest" value="[% dest || c.req.params('dest') %]" />
 [% recaptcha %]
 <br/> <input type="submit" value="submit" /> </form>
 </p>
