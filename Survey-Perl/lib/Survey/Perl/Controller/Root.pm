@@ -13,7 +13,7 @@ sub index :Path :Args(0) {
     $c->res->body('<a href="'. $c->uri_for('/survey') . '">Survey</a>');
 }
 
-sub default :Path {
+sub do_404 :Path {
     my ( $self, $c ) = @_;
     $c->res->status(404);
     $c->res->body('Not found');
