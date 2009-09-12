@@ -5,8 +5,15 @@
 <head>
 <title>Perl Survey 2009</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-</head>
+<script type="text/javascript" src="[% c.uri_for('/static/js/jquery.js') %]"></script>
+<script type='text/javascript' src='[% c.uri_for('/static/js/jquery.autocomplete.js') %]'></script>
+<script type='text/javascript' src='[% c.uri_for('/static/js/jquery.bgiframe.min.js') %]'></script>
+<script type='text/javascript' src='[% c.uri_for('/static/js/countries.en.js') %]'></script>
+<script type='text/javascript' src='[% c.uri_for('/static/js/country_selector.js') %]'></script>
+<link rel="stylesheet" type="text/css" href="[% c.uri_for('/static/css/jquery.autocomplete.css') %]" />
+<link rel="stylesheet" type="text/css" href="[% c.uri_for('/static/css/jquery.autocomplete.country.css') %]" />
 <body>
+<div id="content">
 [% content %]
-</body>
-</html>
+</div>
+</head>

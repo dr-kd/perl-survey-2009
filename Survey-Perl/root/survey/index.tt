@@ -1,1 +1,76 @@
-<h1>boo!</h1>
+<h1>Perl Survey 2009</h1>
+<form autocomplete="off" action="[% c.uri_for('submit_survey') %]" method="get">
+
+<pre>
+Section 2: Programming Perl and other languages
+Years programming Perl
+Years programming overall
+Other programming languages used
+Proportion of Perl
+Perl versions
+Operating systems
+Section 3: Community involvement
+Activities
+CPAN Modules
+ </pre>
+
+ <h2> Demographics </h2>
+<p>
+
+ <label for="gender">Gender:</label> <input type="radio" name="gender" value="M">Male</input><input type="radio" name="gender" value="F">Female</input><input type="radio" name="gender" value="O">Other</input><br />
+ <label for="country_birth">Country of birth:</label>
+ <input type="text" class='ac_country' name='country_birth' value='Enter country name' /><br />
+ <label for="country_residence">Country of residence:</label>
+ <input type="text" class='ac_country' name='country_residence' value='Enter country name' /><br />
+ <label for="year_of_birth">Year of Birth</label><input type="text" name="year_of_birth" value="" /><br />
+ <label for="Income">Income (to nearest $5,000 in US dollars) :</label><input type="text" name="income" value="" /> <br />
+ <label for="industries">Industry or industries in which you work:</label>
+<select name="industries" multiple="multiple">
+<option value="Advertising/Marketing/Public Relations">Advertising/Marketing/Public Relations</option>
+<option value="Agriculture/Forestry/Fishing">Agriculture/Forestry/Fishing</option>
+<option value="Architectural Services">Architectural Services</option>
+<option value="Automotive">Automotive</option>
+<option value="Computers - Services">Computers - Services</option>
+<option value="Computers - Hardware">Computers - Hardware</option>
+<option value="Computers - Software">Computers - Software</option>
+<option value="Construction/Mining">Construction/Mining</option>
+<option value="Consulting Services">Consulting Services</option>
+<option value="Consumer Products">Consumer Products</option>
+<option value="Creative/Design">Creative/Design</option>
+<option value="Customer Service">Customer Service</option>
+<option value="Education">Education</option>
+<option value="Electronics">Electronics</option>
+<option value="Energy/Utilities">Energy/Utilities</option>
+<option value="Engineering">Engineering</option>
+<option value="Entertainment">Entertainment</option>
+<option value="Environmental">Environmental</option>
+<option value="Financial">Financial</option>
+<option value="Government">Government</option>
+<option value="Hospitality/Tourism">Hospitality/Tourism</option>
+<option value="Human Resources">Human Resources</option>
+<option value="Insurance">Insurance</option>
+<option value="Internet">Internet</option>
+<option value="Legal">Legal</option>
+<option value="Manufacturing">Manufacturing</option>
+<option value="Medical/Healthcare">Medical/Healthcare</option>
+<option value="Military">Military</option>
+<option value="Nonprofit">Nonprofit</option>
+<option value="Publishing">Publishing</option>
+<option value="Real Estate">Real Estate</option>
+<option value="Retail">Retail</option>
+<option value="Science">Science</option>
+<option value="Sports and Recreation">Sports and Recreation</option>
+<option value="Telecommunications">Telecommunications</option>
+<option value="Textiles">Textiles</option>
+<option value="Transportation">Transportation</option>
+<option value="Other">Other</option> <br />
+
+
+ 
+
+ </p>
+ <p>
+   <button type="submit" value="Submit" >Submit</button>
+
+ </p>
+ </form>
