@@ -10,7 +10,8 @@ __PACKAGE__->config->{namespace} = '';
 
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
-    $c->res->body('<a href="'. $c->uri_for('/survey') . '">Survey</a>');
+#    $c->res->body('<a href="'. $c->uri_for('/survey') . '">Survey</a>');
+    $c->res->redirect($c->uri_for('/survey'));
 }
 
 sub do_404 :Path {
