@@ -9,3 +9,7 @@ dispatch:
 /survey/$name/start -> start new survey
 /survey/$name/completed -> display list # auth
 /reset/$name/dump -> dump results to csv and clear db # auth
+
+regenerate autocomplete database with:
+
+script/survey_perl_create.pl model Autocomplete DBIC::Schema Autocomplete create=static dbi:SQLite:db/autocomplete.db '' ''
