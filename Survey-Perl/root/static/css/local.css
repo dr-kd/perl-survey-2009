@@ -1,0 +1,21 @@
+body {
+    margin-top:20px;
+    margin-left:20px;
+    margin-right:20px;
+    padding-left:20px;
+    border: 1px solid black;
+}
+
+table { border: 1px solid #789DB3;}
+table td.data { border: none; text-align: center; background-color: #eef; border: 1px solid white; }
+table td.id { border: none; text-align: left; background-color: #eef; border: 1px solid white; }
+table th.data { border: none; background-color: #ccf; text-align: center; padding-right:5px;  }
+table th.id { border: none; background-color: #ccf; text-align: left;  }
+
+pre {  
+    white-space: pre-wrap;       /* css-3 */  
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */  
+    white-space: -pre-wrap;      /* Opera 4-6 */  
+    white-space: -o-pre-wrap;    /* Opera 7 */  
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */  
+}  

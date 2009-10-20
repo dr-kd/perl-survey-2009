@@ -1,3 +1,4 @@
+<div class="container" style="width:800px">
 <h1>Perl Survey 2009</h1>
 <form autocomplete="off" action="[% c.uri_for('submit_survey') %]" method="get">
 
@@ -63,7 +64,14 @@ CPAN Modules
 <option value="Telecommunications">Telecommunications</option>
 <option value="Textiles">Textiles</option>
 <option value="Transportation">Transportation</option>
-<option value="Other">Other</option> <br />
+<option value="Other">Other</option></select>
+<h2> Please indicate up to five programming languages that you use frequently </h2>
+<label>Most used langage</label> <input type="text" id="ac_lang" name="lang1"/> <br />
+<label>2nd most used</label> <input type="text" id="ac_lang" name="lang1"/> <br />
+<label>3rd most used</label> <input type="text" id="ac_lang" name="lang1"/> <br />
+<label>4th most used</label> <input type="text" id="ac_lang" name="lang1"/> <br />
+<label>5th most used</label> <input type="text" id="ac_lang" name="lang1"/> <br />
+
 
 
  
@@ -74,3 +82,4 @@ CPAN Modules
 
  </p>
  </form>
+</div>
