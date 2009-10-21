@@ -20,7 +20,7 @@ CPAN Modules
 
  <label for="gender">Gender:</label> <input type="radio" name="gender" value="M">Male</input><input type="radio" name="gender" value="F">Female</input><input type="radio" name="gender" value="O">Other</input><br />
  <label for="country_birth">Country of birth:</label>
- <input type="text" class='ac_country' name='country_birth' value='Enter country name' /><br />
+ <input type="text" class='ac_country' name='country_birth' /><br />
  <label for="country_residence">Country of residence:</label>
  <input type="text" class='ac_country' name='country_residence' value='Enter country name' /><br />
  <label for="year_of_birth">Year of Birth</label><input type="text" name="year_of_birth" value="" /><br />

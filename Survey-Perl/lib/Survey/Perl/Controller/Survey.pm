@@ -17,7 +17,7 @@ sub survey_base :Chained("/") :PathPart("survey") :CaptureArgs(0) {
 
 sub get_root :Chained("survey_base") :PathPart("") :Args(0) {
     my ($self, $c) = @_;
-    $c->stash(template => 'survey/index.tt');
+    $c->stash(template => 'survey/test_ac.tt');
 }
 
 
