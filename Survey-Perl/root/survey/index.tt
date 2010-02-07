@@ -1,85 +1,302 @@
-<div class="container" style="width:800px">
+[% PROCESS 'survey/macros.tt' %]
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#ac_country_birth").autocomplete("[% c.uri_for('/autocomplete/Country') %]");
+    $('#ac_country_birth').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+    $("#ac_country_residence").autocomplete("[% c.uri_for('/autocomplete/Country') %]");
+    $('#ac_country_residence').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_lang").autocomplete("[% c.uri_for('/autocomplete/ProgLang') %]");
+    $('input#ac_lang').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+
+    $("#ac_lang1").autocomplete("[% c.uri_for('/autocomplete/ProgLang') %]");
+    $('input#ac_lang1').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_lang2").autocomplete("[% c.uri_for('/autocomplete/ProgLang') %]");
+    $('input#ac_lang2').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+
+    $("#ac_lang3").autocomplete("[% c.uri_for('/autocomplete/ProgLang') %]");
+    $('input#ac_lang3').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_lang4").autocomplete("[% c.uri_for('/autocomplete/ProgLang') %]");
+    $('input#ac_lang4').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_lang5").autocomplete("[% c.uri_for('/autocomplete/ProgLang') %]");
+    $('input#ac_lang4').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $('select').simpleMultiSelect({
+    highlight : '#CCE',
+    border : '#777',
+    width : 350,
+    height : 75,
+    classesOnly : false,
+    container : 'sms-container',
+    pseudoSelect : 'sms-pseudo-select',
+    selected : 'sms-selected',
+    unselected : 'sms-unselected'
+});
+
+  });
+  
+</script>
+
 <h1>Perl Survey 2009</h1>
-<form autocomplete="off" action="[% c.uri_for('submit_survey') %]" method="get">
 
-<pre>
-Section 2: Programming Perl and other languages
-Years programming Perl
-Years programming overall
-Other programming languages used
-Proportion of Perl
-Perl versions
-Operating systems
-Section 3: Community involvement
-Activities
-CPAN Modules
- </pre>
+<div class="formContainer">
 
- <h2> Demographics </h2>
-<p>
+<form name="" action = "finish" method="POST">
+<ul class="form">
+<fieldset>
+<legend>Demographic Information</legend>
+ [% radio_list ( { title => 'Gender', field => 'gender', labels => [ 'Male', 'Female', 'Other'] } ) %]
 
- <label for="gender">Gender:</label> <input type="radio" name="gender" value="M">Male</input><input type="radio" name="gender" value="F">Female</input><input type="radio" name="gender" value="O">Other</input><br />
- <label for="country_birth">Country of birth:</label>
- <input type="text" class='ac_country' name='country_birth' /><br />
- <label for="country_residence">Country of residence:</label>
- <input type="text" class='ac_country' name='country_residence' value='Enter country name' /><br />
- <label for="year_of_birth">Year of Birth</label><input type="text" name="year_of_birth" value="" /><br />
- <label for="Income">Income (to nearest $5,000 in US dollars) :</label><input type="text" name="income" value="" /> <br />
- <label for="industries">Industry or industries in which you work:</label>
-<select name="industries" multiple="multiple">
-<option value="Advertising/Marketing/Public Relations">Advertising/Marketing/Public Relations</option>
-<option value="Agriculture/Forestry/Fishing">Agriculture/Forestry/Fishing</option>
-<option value="Architectural Services">Architectural Services</option>
-<option value="Automotive">Automotive</option>
-<option value="Computers - Services">Computers - Services</option>
-<option value="Computers - Hardware">Computers - Hardware</option>
-<option value="Computers - Software">Computers - Software</option>
-<option value="Construction/Mining">Construction/Mining</option>
-<option value="Consulting Services">Consulting Services</option>
-<option value="Consumer Products">Consumer Products</option>
-<option value="Creative/Design">Creative/Design</option>
-<option value="Customer Service">Customer Service</option>
-<option value="Education">Education</option>
-<option value="Electronics">Electronics</option>
-<option value="Energy/Utilities">Energy/Utilities</option>
-<option value="Engineering">Engineering</option>
-<option value="Entertainment">Entertainment</option>
-<option value="Environmental">Environmental</option>
-<option value="Financial">Financial</option>
-<option value="Government">Government</option>
-<option value="Hospitality/Tourism">Hospitality/Tourism</option>
-<option value="Human Resources">Human Resources</option>
-<option value="Insurance">Insurance</option>
-<option value="Internet">Internet</option>
-<option value="Legal">Legal</option>
-<option value="Manufacturing">Manufacturing</option>
-<option value="Medical/Healthcare">Medical/Healthcare</option>
-<option value="Military">Military</option>
-<option value="Nonprofit">Nonprofit</option>
-<option value="Publishing">Publishing</option>
-<option value="Real Estate">Real Estate</option>
-<option value="Retail">Retail</option>
-<option value="Science">Science</option>
-<option value="Sports and Recreation">Sports and Recreation</option>
-<option value="Telecommunications">Telecommunications</option>
-<option value="Textiles">Textiles</option>
-<option value="Transportation">Transportation</option>
-<option value="Other">Other</option></select>
-<h2> Please indicate up to five programming languages that you use frequently </h2>
-<label>Most used langage</label> <input type="text" id="ac_lang" name="lang1"/> <br />
-<label>2nd most used</label> <input type="text" id="ac_lang" name="lang1"/> <br />
-<label>3rd most used</label> <input type="text" id="ac_lang" name="lang1"/> <br />
-<label>4th most used</label> <input type="text" id="ac_lang" name="lang1"/> <br />
-<label>5th most used</label> <input type="text" id="ac_lang" name="lang1"/> <br />
-
-
-
+ [% radio_list ( {title => 'Age Group', field => 'age', labels => [ 'Under 20', '20-24', '25-29', '30-39', '40-49', '50+']}) %]
  
+ [% ac_textbox( { field => "country_birth", title => 'Country of Birth', }) %]
+ [% ac_textbox( { field => "country_residence", title => 'Country of Residence', }) %]
 
- </p>
- <p>
-   <button type="submit" value="Submit" >Submit</button>
+[% radio_list( { field => 'highest_qual', title => 'Highest Qualification', labels => ['School', 'Technical College', 'University undergraduate', 'University postgraduate']}) %] </li>
 
- </p>
- </form>
+[% multiselect( { field => 'field', title => 'If you have post-school training, what area(s) is/was your major(s)?' , labels => ['Computing', 'Arts', 'Creative Arts', 'Science', 'Social Science', 'Engineering', 'Education', 'Other'] }) %]
+[% radio_list( { title => 'During your education, were you taught any Perl at university?', field => 'dynamic',  labels =>  ['None', 'Almost none', 'A little', 'Quite a bit', 'A lot' ] } ) %]
+[% radio_list( { title => 'During your education, were you taught any other open source dynamic languages?', field => 'dynamic',  labels =>  ['None', 'Almost none', 'A little', 'Quite a bit', 'A lot'] } ) %]
+[% textarea( { title => 'If you were taught other open source dynamic languages during your education, please name them (in order of how much you covered them)?', field => 'cert_comments' } ) %]
+[% radio_list( { title => 'Your aproximate annual income', field => 'income', labels => ['$0- $30,000', '$30,000 - $60,000', '$60,000 - $90,000', '$90,000 - $120,000', '$120,000 +' ] } ) %]
+
+[% multiselect( { title => 'Industry/Industries in which you work', field => industries, labels => [ "Advertising/Marketing/Public Relations", "Agriculture/Forestry/Fishing", "Architectural Services", "Automotive", "Computers - Services", "Computers - Hardware", "Computers - Software", "Construction/Mining", "Consulting Services", "Consumer Products", "Creative/Design", "Customer Service", "Education", "Electronics", "Energy/Utilities", "Engineering", "Entertainment", "Environmental", "Financial", "Government", "Hospitality/Tourism", "Human Resources", "Insurance", "Internet", "Legal", "Manufacturing", "Medical/Healthcare", "Military", "Nonprofit", "Publishing", "Real Estate", "Retail", "Science", "Sports and Recreation", "Telecommunications", "Textiles", "Transportation", "Other"] } )  %]
+</fieldset>
+<fieldset>
+<legend>Programming Knowledge </legend>
+[% radio_list( { title => 'How long have you been programming computers for?', field => 'prog_length', labels => [ 'Less than 1 year', '1 to 3 years', '4 to 6 years', '7 to 10 years', '11-20 years', '20 or more years'  ] }) %]
+[% radio_list( { title => 'How long have you been programming perl for?', field => 'perl_length', labels => [ 'Less than 1 year', '1 to 3 years', '4 to 6 years', '7 to 10 years', '11-20 years', '20 or more years'  ] }) %] 
+[% radio_list( { title => 'What percentage of your work time is spent programming or otherwise working on software projects?', field => 'percent_programming', labels => ['0-10%', '10-30%', '30-50%', '50-80%', '80% or more' ] } ) %]
+[% radio_list( { title => 'What percentage of your work time working on software projects software projects is spent not writing code?', field => 'percent_management', labels => ['0-10%', '10-30%', '30-50%', '50-80%', '80% or more' ] } ) %]
+[% radio_list( { title => 'What percentage of your programming time is spent programming perl?', field => 'percent_perl', labels => ['0-10%', '10-30%', '30-50%', '50-80%', '80% or more' ] } ) %]
+[% radio_list( { title => 'I spend my spare time programming', field => 'spare_time', labels => ['Never', 'Occasionally', 'A little', 'Frequently', 'Very often', 'Most of my spare time' ]} ) %]
+[% multiselect( { title => 'What versions of Perl do you most commonly use (multiselect)', field => 'perl_versions', labels => [ '5.4 or lower', '5.005', '5.6.x', '5.8.x', '5.10.x', '5.12'] } ) %]
+[% radio_list( { title => 'What version of Perl do you use most frequently at the moment?', field => 'perl_versions', labels => [ '5.4 or lower', '5.005', '5.6.x', '5.8.x', '5.10.x', '5.12'] } ) %]
+
+<h3> About the operating systems that you use </h3>
+
+[% multiselect( { title => 'Which operating system(s) do you use for day to day programming/development? (multiselect)', field => 'os_dev',
+labels => [ 'Amiga',
+'Apollo',
+'BeOS',
+'Bs2000',
+'BSD - freebsd',
+'BSD - netbsd',
+'BSD - openbsd',
+'EPOC',
+'GNU Hurd',
+'Linux - debian',
+'Linux - fedora',
+'Linux - gentoo',
+'Linux - other',
+'Linux - redhat',
+'Linux - suse',
+'Linux - ubuntu',
+'Mac OS X for personal computers',
+'Mac OS X Server',
+'Mac OS X for iPhone/iPod Touch',
+'Macos (pre OS X)',
+'Minix',
+'MSDOS ',
+'MVS',
+'OS/2',
+'OS/390',
+'OS/400',
+'Palm OS',
+'Plan 9',
+'QNX',
+'RiscOS',
+'Symbian',
+'Unix - AIX',
+'Unix - DG/UX',
+'Unix - HPUX',
+'Unix - IRIX',
+'Unix - NeXT',
+'Unix - Solaris',
+'Unix - Tru64',
+'Unix - Other',
+'VMS',
+'Windows 2003 server',
+'Windows 2k',
+'Windows 3.1',
+'Windows 95',
+'Windows 98',
+'Windows CE',
+'Windows ME',
+'Windows NT',
+'Windows Vista',
+'Windows 7',
+'Windows XP',
+'Other'] } ) %]
+
+[% multiselect( { title => 'Which operating system(s) are your completed projects deployed to? (multiselect)', field => 'os_deployment',
+labels => [ 'Amiga',
+'Apollo',
+'BeOS',
+'Bs2000',
+'BSD - freebsd',
+'BSD - netbsd',
+'BSD - openbsd',
+'EPOC',
+'GNU Hurd',
+'Linux - debian',
+'Linux - fedora',
+'Linux - gentoo',
+'Linux - other',
+'Linux - redhat',
+'Linux - suse',
+'Linux - ubuntu',
+'Mac OS X for personal computers',
+'Mac OS X Server',
+'Mac OS X for iPhone/iPod Touch',
+'Macos (pre OS X)',
+'Minix',
+'MSDOS ',
+'MVS',
+'OS/2',
+'OS/390',
+'OS/400',
+'Palm OS',
+'Plan 9',
+'QNX',
+'RiscOS',
+'Symbian',
+'Unix - AIX',
+'Unix - DG/UX',
+'Unix - HPUX',
+'Unix - IRIX',
+'Unix - NeXT',
+'Unix - Solaris',
+'Unix - Tru64',
+'Unix - Other',
+'VMS',
+'Windows 2003 server',
+'Windows 2k',
+'Windows 3.1',
+'Windows 95',
+'Windows 98',
+'Windows CE',
+'Windows ME',
+'Windows NT',
+'Windows Vista',
+'Windows 7',
+'Windows XP',
+'Other' ]} ) %]
+
+<h3> Please indicate up to five programming languages that you use frequently (excluding Perl) </h3>
+[% ac_textbox( {title => 'Most used', field => 'lang' } ) %]
+[% ac_textbox( {title => 'Second most used', field => 'lang1' } ) %]
+[% ac_textbox( {title => 'Third most used', field => 'lang2' } ) %]
+[% ac_textbox( {title => 'Fourth most used', field => 'lang3' } ) %]
+[% ac_textbox( {title => 'Fifth most used', field => 'lang4' } ) %]
+<h4>Where does perl belong in this list?</h4>
+[% radio_list( { title => 'Where does Perl belong in this list?', field => 'perl_freq', labels => ['1st', '2nd', '3rd', '4th', '5th', '6th or lower'] }) %]
+</fieldset>
+<fieldset>
+<legend> Section 3: Text Editors /IDEs </legend>
+[% multiselect( { title => 'What text editor(s) do you mainly use for Perl development? (multiselect)', field => 'perl_editors', labels => [
+ 'Anjuta', 'BBEdit', 'Crimson', 'DzSoft Perl', 'Eclipse EPIC', 'EditPlus', 'Emacs', 'Emacs ', 'EngInSite-Perl', 'Far', 'Geany', 'Gedit', 'Gvim', 'JEdit', 'Jed', 'Joe', 'KDevelop', 'KEdit', 'Kate', 'Kephra', 'Komodo Edit', 'Komodo IDE', 'Mcedit', 'Nano', 'NEdit', 'Notepad', 'Notepad++', 'Notepad2', 'Open Perl IDE', 'OptiPerl', 'PSPad', 'Padre', 'Perl Express', 'PerlWiz', 'Pico', 'SciTE', 'SlickEdit', 'Smultron', 'TextMate', 'TextPad', 'TextWrangler', 'Ultra Edit (plain or Studio)', 'Vi', 'Vim ', 'Xemacs'] } ) %]
+
+[% multiselect( { title => 'What text editor(s) do you use occasionally for Perl development? (multiselect)', field => 'perl_editors_secondary', labels => [
+ 'Anjuta', 'BBEdit', 'Crimson', 'DzSoft Perl', 'Eclipse EPIC', 'EditPlus', 'Emacs', 'Emacs ', 'EngInSite-Perl', 'Far', 'Geany', 'Gedit', 'Gvim', 'JEdit', 'Jed', 'Joe', 'KDevelop', 'KEdit', 'Kate', 'Kephra', 'Komodo Edit', 'Komodo IDE', 'Mcedit', 'Nano', 'NEdit', 'Notepad', 'Notepad++', 'Notepad2', 'Open Perl IDE', 'OptiPerl', 'PSPad', 'Padre', 'Perl Express', 'PerlWiz', 'Pico', 'SciTE', 'SlickEdit', 'Smultron', 'TextMate', 'TextPad', 'TextWrangler', 'Ultra Edit (plain or Studio)', 'Vi', 'Vim ', 'Xemacs'] } ) %]
+
+</fieldset>
+<fieldset>
+<legend>Section 3: Community involvement</legend>
+[% radio_list( { title =>'How many perl mongers mailing lists do you subscribe to?', field => 'pm_list', labels => [ '0', '1', '2-5', '5+' ] } ); %]
+[% radio_list( { title =>'How many technical perl mailing lists do you subscribe to?', field => 'tech_list', labels => [ '0', '1', '2-5', '5+' ] } ); %]
+[% radio_list( { title => 'Do you have a local perl mongers group?', field => 'local_pm' labels => ['Yes', 'No', "Yes but it's inactive", "Don't Know"] }) %]
+[% radio_list( { title =>'How many technical perl mailing lists do you subscribe to?', field => 'tech_list', labels => [ '0', '1', '2-5', '5+' ] } ); %]
+[% radio_list( { title =>'How many technical mailing lists not related to  perl do you subscribe to?', field => 'tech_list', labels => [ '0', '1', '2-5', '5+' ] } ); %]
+[% radio_list( { title => 'How often do you go to your local perl mongers meetings?' field => 'pm_meetings', labels => ['Never/Not applicable', "I used to but don't any more", 'Once a year or less', 'More than once a year', 'Ususally', 'Almost every meeting' ]}) %]
+[% radio_list ( { title => 'Have you been to a perl related conference (e.g. YAPC/OSDC/Oscon)', field => 'conference', labels => [ 'Never', 'Once or twice', 'Infrequently', 'Occasionally', 'As often as I can' ] } ) %]
+[% radio_list ( { title => 'How many CPAN modules do you maintain?' field => 'cpan_modules', labels => [ 'None', '1-5', '6-20', '21+' ] } ) %]
+[% radio_list ( { title => 'How many CPAN modules have you handed over to others after starting development?' field => 'handover_modules', labels => [ 'None', '1-5', '6-20', '21+' ] } ) %]
+[% radio_list ( {title => 'How often have you provided a bug report for the perl interpreter?', field => 'bug_report_interpreter', labels => [ 'Never', 'Once', 'Occasionally', 'Frequently' ] } ) %]
+[% radio_list ( {title => 'How often have you provided code to help fix a bug in  the perl interpreter?', field => 'fix_bug_interpreter', labels => [ 'Never', 'Once', 'Occasionally', 'Frequently' ] } ) %]
+[% radio_list ( {title => 'How often have you provided code to help add a feature to the perl interpreter?', field => 'feature_interpreter', labels => [ 'Never', 'Once', 'Occasionally', 'Frequently' ] } ) %]
+[% radio_list ( {title => 'How often have you provided a bug report for a CPAN module?', field => 'cpan_bug', labels => [ 'Never', 'Once', 'Occasionally', 'Frequently' ] } ) %]
+[% radio_list ( {title => 'How often have you provided code to help fix a  bug  in a CPAN module?', field => 'cpan_fix_bug', labels => [ 'Never', 'Once', 'Occasionally', 'Frequently' ] } ) %]
+[% radio_list ( {title => 'How often have you provided code to add a feature  to   a CPAN module?', field => 'cpan_feature', labels => [ 'Never', 'Once', 'Occasionally', 'Frequently' ] } ) %]
+</fieldset>
+<fieldset>
+<legend>Attitude Survey</legend>
+<h3> Please answer the following questions about Perl</h3>
+[% likert( { title => "Perl is out of date legacy technology", field => '' }) %]
+[% likert( { title => "There is a trend towards eliminating perl code from the company I work for", field => '' }) %]
+[% likert( { title => "Perl is a bad language for a startup to chose", field => '' }) %]
+[% likert( { title => "Perl is unmaintainable", field => '' }) %]
+[% likert( { title => "Perl doesn't scale", field => '' }) %]
+[% likert( { title => "My management encourages the use of perl for new projects", field => '' }) %]
+[% likert( { title => "My management views perl as out of date legacy technology", field => '' }) %]
+[% likert( { title => "My management views perl as unmaintainable", field => '' }) %]
+[% likert( { title => "My management thinks perl doesn't scale", field => '' }) %]
+[% likert( { title => "Perl is a good first programming language", field => '' }) %]
+[% likert( { title => "Perl is a good tool for beginner programmers", field => '' }) %]
+[% likert( { title => "Perl is a good tool for early career programmers", field => '' }) %]
+[% likert( { title => "Perl is a good tool for experienced programmers", field => '' }) %]
+[% likert( { title => "Perl is a good tool for system administrators", field => '' }) %]
+[% likert( { title => "Perl is a good tool for network engineers", field => '' }) %]
+[% likert( { title => "Perl is a good tool for embedded systems programmers", field => '' }) %]
+[% likert( { title => "Perl is a good tool for applications programmers", field => '' }) %]
+<h3>Please complete the following sentences</h3>
+[% textbox( {title => 'The best thing about perl is:', field => 'best'}) %]
+[% textbox( {title => "The thing that frustrates me most about perl is:", field => 'frustrates'} ) %]
+[% textbox( {title => "Please provide up to 5 words or a short phrase describing perl", field => 'words' }) %]
+</fieldset>
+
+<fieldset>
+<legend>Certification</legend>
+[% likert( {title => '"Official" Perl certification (such as those available for Java or .NET) would be useful for me', field => 'cert_me' } ) %]
+[% likert( {title => '"Official" Perl certification (such as those available for Java or .NET) would be useful for other people', field => 'cert_other' } ) %]
+[% textarea( { title => 'Any comments on this idea?', field => 'cert_comments' } ) %]
+</fieldset>
+
+<fieldset>
+<legend>Programming Practice </legend>
+[% ac_textbox( {title => "Please name the Perl module, distribution pragma or namespace that is most important to you for your work (not 'strict' or 'warnings' please)", field => "cpan_important" }) %]
+<h4>Please name four more of these things which are also extremely important for your work.</h4>
+[% ac_textbox( {title => '1.', field => 'cpan1'}) %]
+[% ac_textbox( {title => '2.', field => 'cpan2'}) %]
+[% ac_textbox( {title => '3.', field => 'cpan3'}) %]
+[% ac_textbox( {title => '4.', field => 'cpan4'}) %]
+[% likert ( { title => 'When I install CPAN modules I always make sure the tests run', field => 'run_tests' } ) %]
+[% likert ( {title => "I frequently 'force install' CPAN modules after observing failing tests", field => 'force' }) %]
+[% likert ( {title => 'I try to understand why tests are failing before running force install', field => 'understand' } ) %]
+[% likert ( {title => 'If tests fail I will try to report a bug through appropriate channels', field => 'report' } ) %]
+[% likert ( {title => 'Running the same perl program across more than one platform (e.g. linux, mac os x, windows) is easy', field => 'x_platform' } ) %]
+[% textarea( {title => 'Any comments about cross platform perl programming?', field => 'x_comments' } ) %]
+</fieldset>
+
+<fieldset>
+<legend>Your contact details</legend>
+<h4>  If you would like to be informed when the report from this survey is published, please give an email address below.  It will not be used to identify your questionnaire answers  </h4>
+[% textbox ( {title => 'Your email address', field => 'email' } ) %]
+</fieldset>
+<fieldset> <legend>Finished!</legend>
+<li><input type="submit" value="submit" />
+</fieldset>
+</form>    
+</ul>
 </div>

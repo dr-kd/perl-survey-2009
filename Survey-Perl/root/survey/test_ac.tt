@@ -1,17 +1,18 @@
-  <script>
-  $(document).ready(function(){
-$("#ac_country").autocomplete("[% c.uri_for('/autocomplete/Country') %]");
+<script type="text/javascript">
+        $(document).ready(function() {
+        alert('boo!');
+        $("#ac_country").autocomplete("[% c.uri_for('/autocomplete/Country') %]");
+        $('input#ac_country').result(function(event, data, formatted) {
+             $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+        });
+    });
 
-$('input#ac_country').result(function(event, data, formatted) {
- $("#result").html( !data ? "No match!" : "Selected: " + formatted);
-});
 
+</script> 
 
-  });
-  </script>
 <div class="container" style="width:800px">
 <h1>Perl Survey 2009</h1>
-<form autocomplete="off" action="[% c.uri_for('submit_survey') %]" method="get">
+<form  action="[% c.uri_for('submit_survey') %]" method="get">
 <label>Country: </label> <input type="text" name="cob" id="ac_country" />
  </form>
 </div>

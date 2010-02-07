@@ -7,16 +7,18 @@ sub auto :Private {
     $c->stash( current_view => 'JSON');
 }
 
-sub ProgLang :Path {
+sub ProgLang :Local {
     my ($self, $c) = @_;
-    my $autocomplete = $c->model('Autocomplete')->get_list('language', $c->req->params->{'q'});
-    $c->stash(autocomplete => $autocomplete);
+    my $autocomplete = $c->model('Autocomplete')->get_list('ProgLang', 'language', $c->req->params->{'q'});
+    $c->res->body(join "\n", @$autocomplete);
+#    $c->stash(autocomplete => $autocomplete);
 }
 
-sub Country :Path {
+sub Country :Local {
     my ($self, $c) = @_;
-    my $autocomplete = $c->model('Autocomplete')->get_list('country', $c->req->params->{'q'});
-    $c->stash(autocomplete => $autocomplete);
+    my $autocomplete = $c->model('Autocomplete')->get_list('Countries', 'name' , $c->req->params->{'q'});
+    $c->res->body(join "\n", @$autocomplete);
+#    $c->stash(autocomplete => $autocomplete);
     
 }
 

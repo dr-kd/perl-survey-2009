@@ -1,24 +1,19 @@
-<!DOCTYPE html
-	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
 <head>
 <title>Perl Survey 2009</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
-  <link rel="stylesheet" href="http://dev.jquery.com/view/trunk/plugins/autocomplete/jquery.autocomplete.css" type="text/css" />
-  <script type="text/javascript" src="http://dev.jquery.com/view/trunk/plugins/autocomplete/lib/jquery.bgiframe.min.js"></script>
-  <script type="text/javascript" src="http://dev.jquery.com/view/trunk/plugins/autocomplete/lib/jquery.dimensions.js"></script>
-  <script type="text/javascript" src="http://dev.jquery.com/view/trunk/plugins/autocomplete/jquery.autocomplete.js"></script>
-  <script>
- <link rel="stylesheet" href="[% c.uri_for('/static/css/elastic.css')  %]" type=
+  <script src="[% c.uri_for('/static/js/jquery-latest.js')%]"></script>
+  <script src="[% c.uri_for('/static/js/simplemultiselect.js')%]"></script>
+  <link rel="stylesheet" href="[% c.uri_for('/static/css/jquery.autocomplete.css') %]" type="text/css" />
+ <script type="text/javascript" src="[% c.uri_for('/static/js/jquery.bgiframe.min.js') %]"></script>
+  <script type="text/javascript" src="[% c.uri_for('/static/js/jquery.autocomplete.js') %]"></script>
+<!--  <link rel="stylesheet" href="[% c.uri_for('/static/css/elastic.css')  %]" type=
 "text/css" media="screen, projection">
- <link rel="stylesheet" href="[% c.uri_for('/static/css/elastic.print.css')  %]" type="text/css" media="print">
-<script type="text/javascript" src="[% c.uri_for('/static/js/elastic.js') %]"></script>
+ <link rel="stylesheet" href="[% c.uri_for('/static/css/elastic.print.css')  %]" type="text/css" media="print"> -->
+  <link rel="stylesheet" href="[% c.uri_for('/static/css/RMSforms-v0.5.css')  %]" type="text/css" media="screen, projection">
  <link rel="stylesheet" href="[% c.uri_for('/static/css/local.css')  %]" type="text/css" media="screen, projection">
 
 <body>
-<div class="unit">
 [% content %]
-</div>
 </head>
