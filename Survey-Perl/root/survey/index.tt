@@ -42,6 +42,31 @@
       $("#result").html( !data ? "No match!" : "Selected: " + formatted);
     });
 
+    $("#ac_cpan_important").autocomplete("[% c.uri_for('/autocomplete/Cpan') %]");
+    $('input#ac_lang4').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_cpan1").autocomplete("[% c.uri_for('/autocomplete/Cpan') %]");
+    $('input#ac_lang4').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_cpan2").autocomplete("[% c.uri_for('/autocomplete/Cpan') %]");
+    $('input#ac_lang4').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_cpan3").autocomplete("[% c.uri_for('/autocomplete/Cpan') %]");
+    $('input#ac_lang4').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_cpan4").autocomplete("[% c.uri_for('/autocomplete/Cpan') %]");
+    $('input#ac_lang4').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+        
     $('select').simpleMultiSelect({
     highlight : '#CCE',
     border : '#777',
@@ -81,7 +106,7 @@
 [% textarea( { title => 'If you were taught other open source dynamic languages during your education, please name them (in order of how much you covered them)?', field => 'cert_comments' } ) %]
 [% radio_list( { title => 'Your aproximate annual income', field => 'income', labels => ['$0- $30,000', '$30,000 - $60,000', '$60,000 - $90,000', '$90,000 - $120,000', '$120,000 +' ] } ) %]
 
-[% multiselect( { title => 'Industry/Industries in which you work', field => industries, labels => [ "Advertising/Marketing/Public Relations", "Agriculture/Forestry/Fishing", "Architectural Services", "Automotive", "Computers - Services", "Computers - Hardware", "Computers - Software", "Construction/Mining", "Consulting Services", "Consumer Products", "Creative/Design", "Customer Service", "Education", "Electronics", "Energy/Utilities", "Engineering", "Entertainment", "Environmental", "Financial", "Government", "Hospitality/Tourism", "Human Resources", "Insurance", "Internet", "Legal", "Manufacturing", "Medical/Healthcare", "Military", "Nonprofit", "Publishing", "Real Estate", "Retail", "Science", "Sports and Recreation", "Telecommunications", "Textiles", "Transportation", "Other"] } )  %]
+[% multiselect( { title => 'Industry/Industries in which you work', field => 'industries', labels => [ "Advertising/Marketing/Public Relations", "Agriculture/Forestry/Fishing", "Architectural Services", "Automotive", "Computers - Services", "Computers - Hardware", "Computers - Software", "Construction/Mining", "Consulting Services", "Consumer Products", "Creative/Design", "Customer Service", "Education", "Electronics", "Energy/Utilities", "Engineering", "Entertainment", "Environmental", "Financial", "Government", "Hospitality/Tourism", "Human Resources", "Insurance", "Internet", "Legal", "Manufacturing", "Medical/Healthcare", "Military", "Nonprofit", "Publishing", "Real Estate", "Retail", "Science", "Sports and Recreation", "Telecommunications", "Textiles", "Transportation", "Other"] } )  %]
 </fieldset>
 <fieldset>
 <legend>Programming Knowledge </legend>
@@ -243,23 +268,23 @@ labels => [ 'Amiga',
 <fieldset>
 <legend>Attitude Survey</legend>
 <h3> Please answer the following questions about Perl</h3>
-[% likert( { title => "Perl is out of date legacy technology", field => '' }) %]
-[% likert( { title => "There is a trend towards eliminating perl code from the company I work for", field => '' }) %]
-[% likert( { title => "Perl is a bad language for a startup to chose", field => '' }) %]
-[% likert( { title => "Perl is unmaintainable", field => '' }) %]
-[% likert( { title => "Perl doesn't scale", field => '' }) %]
-[% likert( { title => "My management encourages the use of perl for new projects", field => '' }) %]
-[% likert( { title => "My management views perl as out of date legacy technology", field => '' }) %]
-[% likert( { title => "My management views perl as unmaintainable", field => '' }) %]
-[% likert( { title => "My management thinks perl doesn't scale", field => '' }) %]
-[% likert( { title => "Perl is a good first programming language", field => '' }) %]
-[% likert( { title => "Perl is a good tool for beginner programmers", field => '' }) %]
-[% likert( { title => "Perl is a good tool for early career programmers", field => '' }) %]
-[% likert( { title => "Perl is a good tool for experienced programmers", field => '' }) %]
-[% likert( { title => "Perl is a good tool for system administrators", field => '' }) %]
-[% likert( { title => "Perl is a good tool for network engineers", field => '' }) %]
-[% likert( { title => "Perl is a good tool for embedded systems programmers", field => '' }) %]
-[% likert( { title => "Perl is a good tool for applications programmers", field => '' }) %]
+[% likert( { title => "Perl is out of date legacy technology", field => 'legacy' }) %]
+[% likert( { title => "There is a trend towards eliminating perl code from the company I work for", field => 'eliminate' }) %]
+[% likert( { title => "Perl is a bad language for a startup to chose", field => 'startup' }) %]
+[% likert( { title => "Perl is unmaintainable", field => 'unmaintainable' }) %]
+[% likert( { title => "Perl doesn't scale", field => 'scale' }) %]
+[% likert( { title => "My management encourages the use of perl for new projects", field => 'management_encourages' }) %]
+[% likert( { title => "My management views perl as out of date legacy technology", field => 'management_outdated' }) %]
+[% likert( { title => "My management views perl as unmaintainable", field => 'management_unmaintainable' }) %]
+[% likert( { title => "My management thinks perl doesn't scale", field => 'management_scale' }) %]
+[% likert( { title => "Perl is a good first programming language", field => 'first' }) %]
+[% likert( { title => "Perl is a good tool for beginner programmers", field => 'beginner' }) %]
+[% likert( { title => "Perl is a good tool for early career programmers", field => 'early_career' }) %]
+[% likert( { title => "Perl is a good tool for experienced programmers", field => 'experienced' }) %]
+[% likert( { title => "Perl is a good tool for system administrators", field => 'sysadmins' }) %]
+[% likert( { title => "Perl is a good tool for network engineers", field => 'netengs' }) %]
+[% likert( { title => "Perl is a good tool for embedded systems programmers", field => 'embedded' }) %]
+[% likert( { title => "Perl is a good tool for applications programmers", field => 'apps' }) %]
 <h3>Please complete the following sentences</h3>
 [% textbox( {title => 'The best thing about perl is:', field => 'best'}) %]
 [% textbox( {title => "The thing that frustrates me most about perl is:", field => 'frustrates'} ) %]
@@ -275,8 +300,8 @@ labels => [ 'Amiga',
 
 <fieldset>
 <legend>Programming Practice </legend>
-[% ac_textbox( {title => "Please name the Perl module, distribution pragma or namespace that is most important to you for your work (not 'strict' or 'warnings' please)", field => "cpan_important" }) %]
-<h4>Please name four more of these things which are also extremely important for your work.</h4>
+[% ac_textbox( {title => "Please name the Perl package on CPAN that is most important to you for your work", field => "cpan_important" }) %]
+<h4>Please name four CPAN packages which are also important for your work.</h4>
 [% ac_textbox( {title => '1.', field => 'cpan1'}) %]
 [% ac_textbox( {title => '2.', field => 'cpan2'}) %]
 [% ac_textbox( {title => '3.', field => 'cpan3'}) %]
