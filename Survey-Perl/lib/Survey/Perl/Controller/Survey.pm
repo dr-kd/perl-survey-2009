@@ -1,5 +1,6 @@
 package Survey::Perl::Controller::Survey;
 use Moose;
+use Config::Any;
 BEGIN { extends 'Catalyst::Controller' }
 
 sub survey_base :Chained("/") :PathPart("survey") :CaptureArgs(0) {
@@ -17,7 +18,9 @@ sub survey_base :Chained("/") :PathPart("survey") :CaptureArgs(0) {
 
 sub get_root :Chained("survey_base") :PathPart("") :Args(0) {
     my ($self, $c) = @_;
-    $c->stash(template => 'survey/index.tt');
+    my $questions = do($c->path_to('survey/en.pl'));
+    $c->stash(sections => $questions,
+              template => 'survey/index.tt');
 }
 
 

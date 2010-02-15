@@ -1,3 +1,7 @@
+[% MACRO heading(config) BLOCK %]
+<h3>[% config.title | html %]</h3>
+[% END %]
+
 [% MACRO radio_list(config) BLOCK %]
 <ul class="form hii"><fieldset><legend> [% config.title %] </legend>
 [% FOREACH val IN config.labels %]
@@ -11,7 +15,7 @@
 [% END %]
 
 [% MACRO textbox(config) BLOCK %]
-<ul class="form hiv"> <fieldset><legend>[% config.title %]</legend><li><label for="[% config.field %]"> </label> <input type="text" size="36" id="[% config.field %]" name="[% config_field %]" /></li></fieldset></ul>
+<ul class="form hiv"> <fieldset><legend>[% config.title %]</legend><li><label for="[% config.field %]"> </label> <input type="text" size="36" name="[% config.field %]" name="[% config_field %]" /></li></fieldset></ul>
 [% END %]
 
 [% MACRO textarea(config)  BLOCK %]
