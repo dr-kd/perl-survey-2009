@@ -1,0 +1,102 @@
+| age                                 | 6                                    |
+| apps                                | 7                                    |
+| beginner                            | 7                                    |
+| best                                | best                                 |
+| cert_comments                       | cert_comments                        |
+| cert_me                             | 7                                    |
+| cert_other                          | 7                                    |
+| country_residence                   |                                      |
+| cpan1                               |                                      |
+| cpan2                               |                                      |
+| cpan3                               |                                      |
+| cpan4                               |                                      |
+| cpan_important                      |                                      |
+| early_career                        | 7                                    |
+| eliminate                           | 7                                    |
+| embedded                            | 7                                    |
+| experienced                         | 7                                    |
+| field                               | Computing>, Arts>, Creative Arts>, - |
+|                                     | Science>, Social Science>, Engineer- |
+|                                     | ing>, Education>, Other>             |
+| first                               | 7                                    |
+| frustrates                          | frustrates                           |
+| gender                              | 3                                    |
+| highest_qual                        | 4                                    |
+| income                              | 5                                    |
+| industries                          | Advertising/Marketing/Public Relati- |
+|                                     | ons>, Agriculture/Forestry/Fishing>- |
+|                                     | , Architectural Services>, Automoti- |
+|                                     | ve>, Computers - Services>, Compute- |
+|                                     | rs - Hardware>, Computers - Softwar- |
+|                                     | e>, Construction/Mining>, Consultin- |
+|                                     | g Services>, Consumer Products>, Cr- |
+|                                     | eative/Design>, Customer Service>, - |
+|                                     | Education>, Electronics>, Energy/Ut- |
+|                                     | ilities>, Engineering>, Entertainme- |
+|                                     | nt>, Environmental>, Financial>, Go- |
+|                                     | vernment>, Hospitality/Tourism>, Hu- |
+|                                     | man Resources>, Insurance>, Interne- |
+|                                     | t>, Legal>, Manufacturing>, Medical- |
+|                                     | /Healthcare>, Military>, Nonprofit>- |
+|                                     | , Publishing>, Real Estate>, Retail- |
+|                                     | >, Science>, Sports and Recreation>- |
+|                                     | , Telecommunications>, Textiles>, T- |
+|                                     | ransportation>, Other>               |
+| lang                                |                                      |
+| lang1                               |                                      |
+| lang2                               |                                      |
+| lang3                               |                                      |
+| lang4                               |                                      |
+| legacy                              | 7                                    |
+| local_pm                            | 4                                    |
+| management_encourages               | 7                                    |
+| management_outdated                 | 7                                    |
+| management_scale                    | 7                                    |
+| management_unmaintainable           | 7                                    |
+| netengs                             | 7                                    |
+| os_dev                              | Amiga>, Android>, Apollo>, BeOS>, B- |
+|                                     | s2000>, BSD - freebsd>, BSD - netbs- |
+|                                     | d>, BSD - openbsd>, EPOC>, GNU Hurd- |
+|                                     | >, Linux - debian>, Linux - fedora>- |
+|                                     | , Linux - gentoo>, Linux - other>, - |
+|                                     | Linux - redhat>, Linux - suse>, Lin- |
+|                                     | ux - ubuntu>, Mac OS X for personal- |
+|                                     |  computers>, Mac OS X Server>, Mac - |
+|                                     | OS X for iPhone/iPod Touch>, Macos - |
+|                                     | (pre OS X)>, Minix>, MSDOS >, MVS>,- |
+|                                     |  OS/2>, OS/390>, OS/400>, Palm OS>,- |
+|                                     |  Plan 9>, QNX>, RiscOS>, Symbian>, - |
+|                                     | Unix - AIX>, Unix - DG/UX>, Unix - - |
+|                                     | HPUX>, Unix - IRIX>, Unix - NeXT>, - |
+|                                     | Unix - Solaris>, Unix - Tru64>, Uni- |
+|                                     | x - Other>, VMS>, Windows 2003 serv- |
+|                                     | er>, Windows 2k>, Windows 3.1>, Win- |
+|                                     | dows 95>, Windows 98>, Windows CE>,- |
+|                                     |  Windows ME>, Windows NT>, Windows - |
+|                                     | Vista>, Windows 7>, Windows XP>, Ot- |
+|                                     | her>                                 |
+| other_dynamic_formal                | 5                                    |
+| other_dynamic_taught                | other_dynamic_taught                 |
+| percent_management                  | 5                                    |
+| percent_perl                        | 5                                    |
+| percent_programming                 | 5                                    |
+| perl_formal                         | 5                                    |
+| perl_freq                           | 6                                    |
+| perl_length                         | 6                                    |
+| perl_versions                       | 5.4 or lower>, 5.5005>, 5.6.x>, 5.8- |
+|                                     | .x>, 5.10.x>, 5.12>, 6               |
+| pm_list                             | 4                                    |
+| pm_meetings                         | 6                                    |
+| prog_length                         | 6                                    |
+| scale                               | 7                                    |
+| spare_time                          | 6                                    |
+| startup                             | 7                                    |
+| submit                              | Finished                             |
+| sysadmins                           | 7                                    |
+| tech_list                           | 4                                    |
+| tech_list_non_perl                  | 4                                    |
+| unmaintainable                      | 7                                    |
+| words                               | words                                |
+| x_comments                          | x_comments                           |
+| x_platform                          | 7                                    |
+'-------------------------------------+--------------------------------------'
