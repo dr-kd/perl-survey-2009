@@ -23,5 +23,10 @@ sub get_root :Chained("survey_base") :PathPart("") :Args(0) {
               template => 'survey/index.tt');
 }
 
+sub finish_survey :Chained("survey_base") :PathPart("finish") :Args(0) {
+    my ($self, $c) = @_;
+    my $user = $c->session->{human};
+    $c->res->body($c->sessionid);
+}
 
 1;
