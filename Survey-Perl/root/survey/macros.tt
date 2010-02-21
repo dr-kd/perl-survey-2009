@@ -5,7 +5,7 @@
 [% MACRO radio_list(config) BLOCK %]
 <ul class="form hii"><fieldset><legend> [% config.title %] </legend>
 [% FOREACH val IN config.labels %]
-<li><label class="h" for="[% config.field %]">[% val %]</label><input type="radio" name="[% config.field %]" value="[% loop.count %]" /></li>
+<li><label class="h" for="[% config.field %]">[% val %]</label><input type="radio" name="[% config.field %]" value="[% loop.index %]" /></li>
 [% END %]
 </fieldset></ul>
 [% END %]
@@ -34,7 +34,7 @@
 [% MACRO likert(config) BLOCK %]
 <ul class="form hvv"><fieldset><legend>[% config.title %]</legend><label for="[% config.field %]"> </label>
 [% FOREACH val IN ["Don't Know/Not Applicable", "Strongly Disagree", "Disagree", "Slightly Disagree", "Slightly Agree", "Agree", "Strongly Agree" ] %]
-<li><label  for="[% config.field %]">[% val %]</label><input type="radio" name="[% config.field %]" value="[% loop.count %]" /></li>
+<li><label  for="[% config.field %]">[% val %]</label><input type="radio" name="[% config.field %]" value="[% loop.index %]" /></li>
 [% END %]</fieldset></ul>
 
 [% END %]
