@@ -29,4 +29,10 @@ sub finish_survey :Chained("survey_base") :PathPart("finish") :Args(0) {
     $c->res->body($c->sessionid);
 }
 
+sub finish_survey : Chained("survey_base") PathPart("finish") Args(0) {
+	my ($self, $c) = @_;
+	
+	
+}
+
 1;

@@ -463,6 +463,7 @@ please name them (in order of how much you covered them)?',
                      'More than once a year',
                      'Ususally',
                      'Almost every meeting' ]},
+<<<<<<< HEAD
         { type => 'radio_list',
           title => 'Have you been to a perl related conference (e.g. YAPC/OSDC/Oscon)',
           field => 'conference',

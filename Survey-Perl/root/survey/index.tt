@@ -89,7 +89,7 @@ $(document).ready(function(){
 
 <div class="formContainer">
 
-<form name="" action = "[% c.uri_for('finish') %]" method="POST">
+<form name="" action = "[% c.uri_for_action('/survey/finish') %]" method="POST">
 <ul class="form">
 [% FOREACH s IN sections %]
 
