@@ -1,4 +1,4 @@
-package Survey::Perl::Auth::Schema;
+package Survey::Perl::Answers::Schema;
 
 use strict;
 use warnings;
