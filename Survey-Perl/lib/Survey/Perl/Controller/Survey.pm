@@ -2,7 +2,7 @@ package Survey::Perl::Controller::Survey;
 use Moose;
 use Config::Any;
 BEGIN { extends 'Catalyst::Controller' }
-
+use Data::Dumper;
 sub survey_base :Chained("/") :PathPart("survey") :CaptureArgs(0) {
     my ($self, $c) = @_;
 #     if (! $c->user) {
@@ -26,10 +26,11 @@ sub get_root :Chained("survey_base") :PathPart("") :Args(0) {
 
 sub finish_survey : Chained("survey_base") PathPart("finish") Args(0) {
 	my ($self, $c) = @_;
-	my %answers = $c->req->params;
-	delete $answers{'submit'};
+	my $answers = $c->req->params;
+	$c->log->debug("Params: " . Dumper $answers);
+	delete $answers->{'submit'};
 	my $rs = $c->model('Answers')->txn_do(sub{
-		$c->model('Answers::Schema::Survey')->create(%answers)
+		$c->model('Answers::Survey')->create($answers)
 		or die "Could not submit survey answers: $!";
 	});
 	
