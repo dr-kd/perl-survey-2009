@@ -16,15 +16,10 @@ open my $fh, ">", $ARGV[0] or die "can't open file for writing: $!\n";
 while ( my $answer = $answer_rs->next ) {
     print Dumper $answer->columns;
     for my $column ( $answer->columns ) {
-        if ( ref eval  $answer->$column  eq "ARRAY" ) {
-	        print "Arrayref found\n";
-	        print $fh $column . "," . @{$answer->$column} . "\n"
-              or die "couldn't write row: $!";
-        }
-        else {
-            print $fh $column . "," . $answer->$column . "\n"
-              or die "couldn't write row: $!";
-        }
+
+        print $fh $column . "," . $answer->$column . "\n"
+          or die "couldn't write row: $!";
+
     }
 }
 close $fh;

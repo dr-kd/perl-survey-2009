@@ -33,15 +33,16 @@ sub finish_survey : Chained("survey_base") PathPart("finish") Args(0) {
     $c->log->debug( "Params: " . Dumper $answers);
     delete $answers->{'submit'};
     my @multis;
-    my ( $fields, $industries, $versions, $os );
     $c->log->debug( "Answers: " . Dumper @{ $answers->{'field'} } );
-    push @multis, { industries => $_ } for @{ $answers->{'industries'} };
-    push @multis, { versions   => $_ } for @{ $answers->{'perl_versions'} };
-    push @multis, { os_dev     => $_ } for @{ $answers->{'os_dev'} };
+    push @multis, { industries    => $_ } for @{ $answers->{'industries'} };
+    push @multis, { perl_versions => $_ } for @{ $answers->{'perl_versions'} };
+    push @multis, { os_dev        => $_ } for @{ $answers->{'os_dev'} };
+    delete $answers->{$_} for qw/ industries perl_versions os_dev field /;
     $c->log->debug( "multis: " . Dumper @multis );
     my $rs = $c->model('Answers')->txn_do(
         sub {
-            $c->model('Answers::Survey')->populate( \@multis );
+            $c->model('Answers::Survey')->populate( \@multis )
+              or die "Could not submit survey answers: $!";
 
             $c->model('Answers::Survey')->create($answers)
               or die "Could not submit survey answers: $!";
