@@ -34,10 +34,14 @@ sub finish_survey : Chained("survey_base") PathPart("finish") Args(0) {
     delete $answers->{'submit'};
     my @multis;
     $c->log->debug( "Answers: " . Dumper @{ $answers->{'field'} } );
-    push @multis, { industries    => $_ } for @{ $answers->{'industries'} };
-    push @multis, { perl_versions => $_ } for @{ $answers->{'perl_versions'} };
-    push @multis, { os_dev        => $_ } for @{ $answers->{'os_dev'} };
-    delete $answers->{$_} for qw/ industries perl_versions os_dev field /;
+    push @multis, { industries             => $_ } for @{ $answers->{'industries'} };
+    push @multis, { perl_versions          => $_ } for @{ $answers->{'perl_versions'} };
+    push @multis, { os_dev                 => $_ } for @{ $answers->{'os_dev'} };
+    push @multis, { os_deployment          => $_ } for @{ $answers->{'os_deployment'} };
+    push @multis, { perl_editors           => $_ } for @{ $answers->{'perl_editors'} };
+    push @multis, { perl_editors_secondary => $_ } for @{ $answers->{'perl_editors_secondary'} };
+    delete $answers->{$_}
+      for qw/ industries perl_versions os_dev field os_deployment perl_editors perl_editors_secondary/;
     $c->log->debug( "multis: " . Dumper @multis );
     my $rs = $c->model('Answers')->txn_do(
         sub {
