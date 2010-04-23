@@ -1,7 +1,22 @@
+<h1>Perl Survey 2009</h1>
+
+<div class="formContainer">
+<h1>Note</h1>
+
+<p>This survey uses javascript for a decent (user friendly) multiselect input.
+Please make sure that you have javascript switched on before continuing
+further.  We also use a session cookie for remembering the fact that you past
+the reCaptcha below, so please make sure you also have cookies enabled.</p>
+
 <h1> Identify yourself </h1>
-<p> To make sure that this survey is only conducted by real humans, first we ask you to fill in the following form.  Once you get the answer right, you'll be sent on to the survey.
+
+<p> To make sure that this survey is only conducted by real humans, first we
+ask you to fill in the following form.  Once you get the answer right, you'll
+be sent on to the survey.
+
 <form name="recaptcha" action="[% dest %]"
 method="post">
 [% recaptcha %]
 <br/> <input type="submit" value="submit" /> </form>
 </p>
+</div>

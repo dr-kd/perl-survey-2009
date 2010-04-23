@@ -7,15 +7,15 @@ use Data::Dumper;
 sub survey_base : Chained("/") : PathPart("survey") : CaptureArgs(0) {
     my ( $self, $c ) = @_;
 
-    #     if (! $c->user) {
-    #         if ($c->req->params->{'dest'} && ! $c->session->{human}) {
+    if (! $c->user) {
+        if ($c->req->params->{'dest'} && ! $c->session->{human}) {
 
-    #             $c->forward('/recaptcha/test_user');
-    #         }
-    #         elsif (! $c->session->{human}) {
-    #             $c->detach('/recaptcha/test_user');
-    #         }
-    #     }
+            $c->forward('/recaptcha/test_user');
+        }
+        elsif (! $c->session->{human}) {
+            $c->detach('/recaptcha/test_user');
+        }
+    }
 }
 
 sub get_root : Chained("survey_base") : PathPart("") : Args(0) {
