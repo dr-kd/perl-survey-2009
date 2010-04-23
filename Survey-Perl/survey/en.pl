@@ -323,8 +323,7 @@ please name them (in order of how much you covered them)?',
                    '5th',
                    '6th or lower'] },
   ],
-    
-    [ { section_title => 'Section 3: Text Editors / IDEs',
+    [ { section_title => 'Section 3: Text Editors / IDEs'},
         { type => 'multiselect',
           title => 'What text editor(s) do you mainly use for Perl development? (multiselect)',
           field => 'perl_editors',
@@ -420,7 +419,6 @@ please name them (in order of how much you covered them)?',
                       'Vi',
                       'Vim ',
                       'Xemacs'] },
-    },
   ],
 
     [
