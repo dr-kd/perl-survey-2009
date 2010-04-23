@@ -1,0 +1,7 @@
+perlsurvey.org
+__MACOSX
+.DS_Store
+inc
+blib
+META.yml
+Makefile

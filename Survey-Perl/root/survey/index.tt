@@ -1,0 +1,111 @@
+[% PROCESS 'survey/macros.tt' %]
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+    // this code is crap.  Should be class based:  $(".class").autocomplete(...).result(function(){ })
+
+    $("#ac_country_birth").autocomplete("[% c.uri_for('/autocomplete/Country') %]");
+    $('#ac_country_birth').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+    $("#ac_country_residence").autocomplete("[% c.uri_for('/autocomplete/Country') %]");
+    $('#ac_country_residence').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_lang").autocomplete("[% c.uri_for('/autocomplete/ProgLang') %]");
+    $('input#ac_lang').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_lang1").autocomplete("[% c.uri_for('/autocomplete/ProgLang') %]");
+    $('input#ac_lang1').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_lang2").autocomplete("[% c.uri_for('/autocomplete/ProgLang') %]");
+    $('input#ac_lang2').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_lang3").autocomplete("[% c.uri_for('/autocomplete/ProgLang') %]");
+    $('input#ac_lang3').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_lang4").autocomplete("[% c.uri_for('/autocomplete/ProgLang') %]");
+    $('input#ac_lang4').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_lang5").autocomplete("[% c.uri_for('/autocomplete/ProgLang') %]");
+    $('input#ac_lang4').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_cpan_important").autocomplete("[% c.uri_for('/autocomplete/Cpan') %]");
+    $('input#ac_lang4').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_cpan1").autocomplete("[% c.uri_for('/autocomplete/Cpan') %]");
+    $('input#ac_lang4').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_cpan2").autocomplete("[% c.uri_for('/autocomplete/Cpan') %]");
+    $('input#ac_lang4').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_cpan3").autocomplete("[% c.uri_for('/autocomplete/Cpan') %]");
+    $('input#ac_lang4').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+
+    $("#ac_cpan4").autocomplete("[% c.uri_for('/autocomplete/Cpan') %]");
+    $('input#ac_lang4').result(function(event, data, formatted) {
+      $("#result").html( !data ? "No match!" : "Selected: " + formatted);
+    });
+        
+    $('select').simpleMultiSelect({
+    highlight : '#CCE',
+    border : '#777',
+    width : 350,
+    height : 75,
+    classesOnly : false,
+    container : 'sms-container',
+    pseudoSelect : 'sms-pseudo-select',
+    selected : 'sms-selected',
+    unselected : 'sms-unselected'
+});
+
+  });
+  
+</script>
+
+<h1>Perl Survey 2009</h1>
+
+<div class="formContainer">
+
+<form name="" action = "[% c.uri_for_action('/survey/finish_survey') %]" method="POST">
+<ul class="form">
+[% FOREACH s IN sections %]
+
+<fieldset>
+<legend> [% s.shift.section_title %]  </legend>
+
+[% FOREACH q IN s %]
+[% ${q.type}(q) %]
+
+[% END %]
+
+</fieldset>
+
+[% END %]
+
+<input type="submit" name="submit" value="Finished" />
+</form>    
+</ul>
+</div>

@@ -1,0 +1,40 @@
+[% MACRO heading(config) BLOCK %]
+<h3>[% config.title | html %]</h3>
+[% END %]
+
+[% MACRO radio_list(config) BLOCK %]
+<ul class="form hii"><fieldset><legend> [% config.title %] </legend>
+[% FOREACH val IN config.labels %]
+<li><label class="h" for="[% config.field %]">[% val %]</label><input type="radio" name="[% config.field %]" value="[% loop.index %]" /></li>
+[% END %]
+</fieldset></ul>
+[% END %]
+
+[% MACRO ac_textbox(config) BLOCK %]
+<ul class="form hiv"> <fieldset><legend>[% config.title %]</legend><li> <label for="[% config.field %]">  </label> <input type="text" id="ac_[% config.field %]" name="[% config.field %]" size="48"/></li></fieldset></ul>
+[% END %]
+
+[% MACRO textbox(config) BLOCK %]
+<ul class="form hiv"> <fieldset><legend>[% config.title %]</legend><li><label for="[% config.field %]"> </label> <input type="text" size="36" name="[% config.field %]" name="[% config_field %]" /></li></fieldset></ul>
+[% END %]
+
+[% MACRO textarea(config)  BLOCK %]
+<ul class="form hiv"><fieldset><legend>[% config.title %]</legend>  <li> <label for="[% config.field %]"> </label> <textarea rows="5" cols="72" name="[% config.field %]"></textarea></li></fieldset></ul>
+[% END %]
+
+
+[% MACRO multiselect(config) BLOCK %]
+[% IF config.labels.size < 10; SET multisize = config.labels.size; ELSE; multisize=10; END %]
+<ul class="form hiv"><fieldset><legend>[% config.title %]</legend><li><label for="[% config.field %]">   </label>
+<li><select id="[% config.field %]" name="[% config.field %]" multiple="multiple" size="[% multisize %]">
+[% FOREACH o IN config.labels %] <option value="[% o %]>"> [% o %] </option> [% END %]
+</select></li></fieldset></ul>
+[% END %]
+
+[% MACRO likert(config) BLOCK %]
+<ul class="form hvv"><fieldset><legend>[% config.title %]</legend><label for="[% config.field %]"> </label>
+[% FOREACH val IN ["Don't Know/Not Applicable", "Strongly Disagree", "Disagree", "Slightly Disagree", "Slightly Agree", "Agree", "Strongly Agree" ] %]
+<li><label  for="[% config.field %]">[% val %]</label><input type="radio" name="[% config.field %]" value="[% loop.index %]" /></li>
+[% END %]</fieldset></ul>
+
+[% END %]

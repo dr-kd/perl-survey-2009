@@ -1,0 +1,11 @@
+<h1> Please login</h1>
+[% IF c.stash.message != '' %] <h2 style='color:red'> [% c.stash.message %] </h2
+> [% END %]
+<form name="login" method='post' action='[% c.uri_for('/auth/login')  %]'>
+User: <input name='user' type='text' /><br />
+Password: <input name='password' type='password' /><br />
+<input type='checkbox' name='remember' >Remember me</input> <br />
+<input type='hidden' value='[% c.flash.destination  %]' />
+<input type='submit' name='Log In' /> &nbsp; <input type='reset' name='Reset' />
+</form>
+

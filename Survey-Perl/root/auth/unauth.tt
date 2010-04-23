@@ -1,0 +1,6 @@
+<h1> [%c.user.id %]: You are not allowed to view this page.</h1>
+You can <a href="[% c.req.referrer  %]">go back</a> where you came from, or <a h
+ref="[% c.uri_for('/auth/logout') %]">logout</a> and try logging in again as a d
+ifferent user.  If you think this is an error, please contact <a href="mailto:[%
+c.config.admin %]">[% c.config.admin %]</a>
+
