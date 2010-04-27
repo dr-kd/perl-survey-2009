@@ -545,6 +545,21 @@ __PACKAGE__->add_columns(
         is_nullable   => "1",
         size          => 255
     },
+    "perl_editors",
+    { 
+	    data_type => "varchar", 
+	    default_value => "undef", 
+	    is_nullable => 1, 
+	    size => 255 
+	},
+	"perl_editors_secondary",
+    { 
+	    data_type => "varchar", 
+	    default_value => "undef", 
+	    is_nullable => 1, 
+	    size => 255 
+	},
+	
 
 );
 __PACKAGE__->set_primary_key("surveyid");
