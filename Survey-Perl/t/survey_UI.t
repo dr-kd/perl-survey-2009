@@ -29,37 +29,12 @@
 <tr>
 	<td>type</td>
 	<td>ac_country_birth</td>
-	<td>USA</td>
+	<td>United States</td>
 </tr>
 <tr>
 	<td>type</td>
 	<td>ac_country_residence</td>
-	<td>USA</td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>ac_country_birth</td>
-	<td>Uni</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//li[3]/strong</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>ac_country_residence</td>
-	<td></td>
-</tr>
-<tr>
-	<td>type</td>
-	<td>ac_country_residence</td>
-	<td>uni</td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[3]/ul/li[3]</td>
-	<td></td>
+	<td>United States</td>
 </tr>
 <tr>
 	<td>click</td>
