@@ -9,18 +9,20 @@ use DBIx::Class::Schema::Loader qw/ make_schema_at /;
  if (@ARGV) {
      my $table = shift @ARGV;
      %options = ( constraint => $table,
+	              
                   components => [@ARGV]);
  }
 
 
-make_schema_at("PerlSurvey::Schema",
+make_schema_at("Survey::Perl::Answers::Schema",
                    {
                        %options,
                        debug => 1,
                        relationships => 1,
                        use_namespaces => 1,
                        dump_directory => "$Bin/../lib" ,
+                       overwrite_modifications=> 1,
                    },
-                   ["dbi:SQLite:dbname=$Bin/../db/survey.db",
+                   ["dbi:SQLite:$Bin/../db/survey.db",
                     "",""]);
 
