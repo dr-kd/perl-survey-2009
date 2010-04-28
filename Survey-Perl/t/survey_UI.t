@@ -466,31 +466,6 @@
 	<td>submit</td>
 	<td></td>
 </tr>
-<tr>
-	<td>selectFrame</td>
-	<td>cvgtbpjcujyse</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Inbox (1)</td>
-	<td></td>
-</tr>
-<tr>
-	<td>selectFrame</td>
-	<td>relative=up</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=A. Pimp-Named Slickback</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Like</td>
-	<td></td>
-</tr>
 
 </tbody></table>
 </body>

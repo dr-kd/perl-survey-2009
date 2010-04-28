@@ -30,29 +30,36 @@ sub get_root : Chained("survey_base") : PathPart("") : Args(0) {
 sub finish_survey : Chained("survey_base") PathPart("finish") Args(0) {
     my ( $self, $c ) = @_;
     my $answers = $c->req->params;
-    $c->log->debug( "Params: " . Dumper $answers);
+
     delete $answers->{'submit'};
     my @multis;
-    $c->log->debug( "Industries: " . Dumper $answers->{'industries'} );
-    push @multis, { industries => $_ } for [ $answers->{'industries'} ];
+    my $industries        = $answers->{'industries'};
+    my $perls             = $answers->{'perl_versions'};
+    my $os                = $answers->{'os_dev'};
+    my $os_deploy         = $answers->{'os_deployment'};
+    my $editors           = $answers->{'perl_editors'};
+    my $secondary_editors = $answers->{'perl_editors_secondary'};
 
-    push @multis, { perl_versions          => $_ } for [ $answers->{'perl_versions'} ];
-    push @multis, { os_dev                 => $_ } for [ $answers->{'os_dev'} ];
-    push @multis, { os_deployment          => $_ } for [ $answers->{'os_deployment'} ];
-    push @multis, { perl_editors           => $_ } for [ $answers->{'perl_editors'} ];
-    push @multis, { perl_editors_secondary => $_ } for [ $answers->{'perl_editors_secondary'} ];
+    push @multis, map +{ perl_versions => $_ }, @$perls;
+    push @multis, map +{ os_dev        => $_ }, @$os;
+
+    push @multis, map +{ os_deployment          => $_ }, @$os_deploy;
+    push @multis, map +{ perl_editors           => $_ }, @$editors;
+    push @multis, map +{ perl_editors_secondary => $_ }, @$secondary_editors;
     delete $answers->{$_}
       for qw/ industries perl_versions os_dev field os_deployment perl_editors perl_editors_secondary/;
-    $c->log->debug( "multis: " . Dumper @multis );
+    push @multis, $answers;
+    $c->log->debug( "multis: " . Dumper \@multis );
     my $rs = $c->model('Answers')->txn_do(
         sub {
-            $c->model('Answers::Survey')->populate( \@multis )
-              or die "Could not submit survey answers: $!";
+            $c->log->debug('creating answers');
+            $c->model('Answers::Survey')->populate(
+                \@multis
 
-            $c->model('Answers::Survey')->create($answers)
-              or die "Could not submit survey answers: $!";
+            ) or die "Could not submit survey answers: $!";
         }
     );
+    $c->log->debug("Rs: $rs");
 
 }
 
