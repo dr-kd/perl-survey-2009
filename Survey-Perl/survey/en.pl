@@ -63,7 +63,7 @@
 please name them (in order of how much you covered them)?',
           field => 'other_dynamic_taught' } ,
         { type => 'radio_list',
-          title => 'Your aproximate annual income',
+          title => 'Your aproximate annual income (in US dollars)',
           field => 'income',
           labels => ['$0- $30,000',
                      '$30,000 - $60,000',
