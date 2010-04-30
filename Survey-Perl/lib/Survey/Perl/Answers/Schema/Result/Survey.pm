@@ -559,8 +559,26 @@ __PACKAGE__->add_columns(
 	    is_nullable => 1, 
 	    size => 255 
 	},
-	
-
+	"sessionid",
+	{
+		data_type => "varchar",
+		default_value => "undef",
+		is_nullable => 1,
+		size => 255
+    },
+	"timestamp",
+	{
+		data_type => "timestamp",
+		default_value => "undef",
+		is_nullable => 1,
+	},
+	"user_agent",
+	{
+		data_type => "varchar",
+		default_value => "undef",
+		is_nullabe => 1,
+		size => 255,
+	}
 );
 __PACKAGE__->set_primary_key("surveyid");
 
